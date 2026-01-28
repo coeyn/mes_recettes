@@ -250,9 +250,9 @@ const renderDetail = (recipe) => {
       <div class="detail-main">
         <div class="detail-section">
           <h3>Ingredients</h3>
-          <div class="detail">${ingredientSections}</div>
+          <div class="detail-group">${ingredientSections}</div>
         </div>
-        ${optionsSections ? `<div class="detail-section"><h3>Options</h3><div class="detail">${optionsSections}</div></div>` : ""}
+        ${optionsSections ? `<div class="detail-section"><h3>Options</h3><div class="detail-group">${optionsSections}</div></div>` : ""}
       </div>
       <div class="detail-side">
         <div class="detail-section">

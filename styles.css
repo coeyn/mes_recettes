@@ -443,7 +443,7 @@ body {
 
 .detail-section {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .detail-section h3 {
@@ -452,6 +452,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--ink-soft);
+}
+
+.detail-section p {
+  margin: 0;
+}
+
+.detail-group {
+  display: grid;
+  gap: 16px;
 }
 
 .list {
