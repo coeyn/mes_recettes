@@ -101,6 +101,12 @@ const renderList = () => {
     elements.emptyState.classList.add("hidden");
   }
   state.filtered.forEach((recipe) => {
+    const baseCalories =
+      recipe.calories?.base_par_personne ??
+      recipe.calories?.sans_feculent_par_personne ??
+      null;
+    const totalMinutes =
+      (recipe.temps?.preparation_minutes ?? 0) + (recipe.temps?.cuisson_minutes ?? 0);
     const card = document.createElement("article");
     card.className = "card";
     card.tabIndex = 0;
@@ -109,12 +115,17 @@ const renderList = () => {
     card.innerHTML = `
       <h2>${recipe.titre}</h2>
       <div class="badges">
+        ${(recipe.saison || []).map((s) => `<span class="badge sun">${s}</span>`).join("")}
         ${(recipe.tags || []).map((tag) => `<span class="badge">${tag}</span>`).join("")}
       </div>
       <div class="meta">
-        <span>${formatMinutes(recipe.temps?.preparation_minutes)} preparation</span>
-        <span>${formatMinutes(recipe.temps?.cuisson_minutes)} cuisson</span>
+        <span><strong>${formatMinutes(totalMinutes)}</strong> total</span>
         <span>${recipe.portions ?? "?"} portions</span>
+        ${baseCalories ? `<span><strong>${baseCalories}</strong> kcal/pers</span>` : ""}
+      </div>
+      <div class="card-stats">
+        <span class="stat-pill">${formatMinutes(recipe.temps?.preparation_minutes)} prep</span>
+        <span class="stat-pill">${formatMinutes(recipe.temps?.cuisson_minutes)} cuisson</span>
       </div>
     `;
     card.addEventListener("click", () => showRecipe(recipe.id));
