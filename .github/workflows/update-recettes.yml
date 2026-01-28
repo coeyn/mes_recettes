@@ -1,0 +1,30 @@
+﻿name: Update recettes manifest
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  update-manifest:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate recettes.json
+        run: node scripts/update-recettes.js
+      - name: Commit changes
+        run: |
+          if git status --porcelain | grep -q "recettes/recettes.json"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add recettes/recettes.json
+            git commit -m "chore: update recettes manifest"
+            git push
+          else
+            echo "No changes"
+          fi

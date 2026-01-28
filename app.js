@@ -48,39 +48,16 @@ const fetchRecipe = async (file) => {
   return response.json();
 };
 
-const GITHUB_OWNER = "coeyn";
-const GITHUB_REPO = "mes_recettes";
-const GITHUB_BRANCH = "";
-
-const fetchGithubDefaultBranch = async () => {
-  const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}`);
-  if (!response.ok) return null;
-  const data = await response.json();
-  return data.default_branch || null;
-};
-
-const discoverRecipeFiles = async () => {
-  const branch = GITHUB_BRANCH || (await fetchGithubDefaultBranch()) || "main";
-  const response = await fetch(
-    `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/recettes?ref=${branch}`
-  );
+const fetchRecipeList = async () => {
+  const response = await fetch("recettes/recettes.json");
   if (!response.ok) {
     throw new Error("Impossible de charger la liste des recettes.");
   }
-  const items = await response.json();
-  const files = (Array.isArray(items) ? items : [])
-    .filter((item) => item.type === "file" && item.name.endsWith(".json"))
-    .filter((item) => item.name !== "recettes.json")
-    .map((item) => item.name)
-    .sort();
-  if (!files.length) {
-    throw new Error("Aucune recette trouvee dans le dossier recettes.");
-  }
-  return files;
+  return response.json();
 };
 
 const loadRecipes = async () => {
-  const files = await discoverRecipeFiles();
+  const files = await fetchRecipeList();
   const data = await Promise.all(files.map(fetchRecipe));
   state.recipes = data;
   state.filtered = data;
