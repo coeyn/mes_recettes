@@ -19,6 +19,10 @@ const elements = {
   plannerView: document.querySelector("#planner-view"),
   plannerLink: document.querySelector("#planner-link"),
   plannerBack: document.querySelector("#planner-back"),
+  authView: document.querySelector("#auth-view"),
+  authLink: document.querySelector("#auth-link"),
+  authBack: document.querySelector("#auth-back"),
+  authGoPlanner: document.querySelector("#auth-go-planner"),
   plannerSelect: document.querySelector("#planner-select"),
   plannerAdd: document.querySelector("#planner-add"),
   plannerItems: document.querySelector("#planner-items"),
@@ -229,6 +233,7 @@ const showRecipe = (id) => {
   elements.listView.classList.remove("active");
   elements.detailView.classList.add("active");
   elements.plannerView.classList.remove("active");
+  elements.authView.classList.remove("active");
   window.location.hash = id;
 };
 
@@ -236,6 +241,7 @@ const showList = () => {
   elements.detailView.classList.remove("active");
   elements.listView.classList.add("active");
   elements.plannerView.classList.remove("active");
+  elements.authView.classList.remove("active");
   state.current = null;
   if (window.location.hash) {
     history.replaceState(null, "", window.location.pathname);
@@ -246,15 +252,28 @@ const showPlanner = () => {
   elements.listView.classList.remove("active");
   elements.detailView.classList.remove("active");
   elements.plannerView.classList.add("active");
+  elements.authView.classList.remove("active");
   window.location.hash = "plan";
   renderPlannerItems();
   renderShoppingList();
+};
+
+const showAuth = () => {
+  elements.listView.classList.remove("active");
+  elements.detailView.classList.remove("active");
+  elements.plannerView.classList.remove("active");
+  elements.authView.classList.add("active");
+  window.location.hash = "login";
 };
 
 const handleHashChange = () => {
   const id = window.location.hash.replace("#", "");
   if (id === "plan") {
     showPlanner();
+    return;
+  }
+  if (id === "login") {
+    showAuth();
     return;
   }
   if (id) {
@@ -583,6 +602,9 @@ window.addEventListener("hashchange", handleHashChange);
 elements.backButton.addEventListener("click", showList);
 elements.plannerBack.addEventListener("click", showList);
 elements.plannerLink.addEventListener("click", showPlanner);
+elements.authBack.addEventListener("click", showList);
+elements.authLink.addEventListener("click", showAuth);
+elements.authGoPlanner.addEventListener("click", showPlanner);
 
 elements.search.addEventListener("input", applyFilter);
 
