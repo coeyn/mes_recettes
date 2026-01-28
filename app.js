@@ -232,18 +232,39 @@ const renderDetail = (recipe) => {
     })
     .join("");
 
+  const baseCalories =
+    recipe.calories?.base_par_personne ?? recipe.calories?.sans_feculent_par_personne ?? null;
+
   elements.detailContent.innerHTML = `
-    <div>
-      <h2>${recipe.titre}</h2>
-      <div class="badges">
-        ${(recipe.saison || []).map((item) => `<span class="badge sun">${item}</span>`).join("")}
-        ${(recipe.tags || []).map((item) => `<span class="badge">${item}</span>`).join("")}
+    <div class="detail-header">
+      <div class="detail-title">
+        <h2>${recipe.titre}</h2>
+        <div class="badges">
+          ${(recipe.saison || []).map((item) => `<span class="badge sun">${item}</span>`).join("")}
+          ${(recipe.tags || []).map((item) => `<span class="badge">${item}</span>`).join("")}
+        </div>
       </div>
-      <div class="meta">
-        <span>${formatMinutes(recipe.temps?.preparation_minutes)} preparation</span>
-        <span>${formatMinutes(recipe.temps?.cuisson_minutes)} cuisson</span>
-        <span>${totalMinutes} min total</span>
-        <span>${recipe.portions ?? "?"} portions</span>
+      <div class="detail-stats">
+        <div class="stat-card">
+          <span class="stat-label">Preparation</span>
+          <strong>${formatMinutes(recipe.temps?.preparation_minutes)}</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Cuisson</span>
+          <strong>${formatMinutes(recipe.temps?.cuisson_minutes)}</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Total</span>
+          <strong>${formatMinutes(totalMinutes)}</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Portions</span>
+          <strong>${recipe.portions ?? "?"}</strong>
+        </div>
+        ${baseCalories ? `<div class="stat-card">
+          <span class="stat-label">Calories</span>
+          <strong>${baseCalories} kcal</strong>
+        </div>` : ""}
       </div>
     </div>
     <div class="detail-layout">

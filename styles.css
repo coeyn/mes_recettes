@@ -301,6 +301,40 @@ body {
   border: 1px solid rgba(255, 122, 89, 0.12);
 }
 
+.detail-header {
+  display: grid;
+  gap: 16px;
+}
+
+.detail-title h2 {
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  margin: 0 0 8px;
+}
+
+.detail-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(26, 27, 46, 0.08);
+  display: grid;
+  gap: 6px;
+  box-shadow: 0 12px 20px -18px rgba(31, 27, 46, 0.45);
+}
+
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
 .detail-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -433,12 +467,6 @@ body {
   inset: 0;
   opacity: 0;
   cursor: pointer;
-}
-
-.detail h2 {
-  font-family: "Fraunces", serif;
-  font-size: 28px;
-  margin: 0;
 }
 
 .detail-section {
