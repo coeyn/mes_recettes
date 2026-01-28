@@ -322,10 +322,18 @@ const updateAuthUI = () => {
     elements.authStatus.textContent = `Connecte : ${currentUser.email}`;
     elements.authForm.classList.add("hidden");
     elements.authLogout.classList.remove("hidden");
+    if (elements.authLink) {
+      elements.authLink.textContent = "Compte";
+      elements.authLink.classList.add("is-auth");
+    }
   } else {
     elements.authStatus.textContent = "Non connecte.";
     elements.authForm.classList.remove("hidden");
     elements.authLogout.classList.add("hidden");
+    if (elements.authLink) {
+      elements.authLink.textContent = "Connexion";
+      elements.authLink.classList.remove("is-auth");
+    }
   }
 };
 

@@ -111,6 +111,12 @@ body {
   color: var(--ink);
 }
 
+.ghost-button.is-auth {
+  border-color: rgba(79, 210, 176, 0.5);
+  color: #0f7b61;
+  background: rgba(79, 210, 176, 0.12);
+}
+
 .primary-button {
   background: var(--accent);
   color: #fff;
