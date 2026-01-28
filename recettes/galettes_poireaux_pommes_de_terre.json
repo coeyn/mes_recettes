@@ -1,0 +1,61 @@
+{
+  "id": "galettes_poireaux_pommes_de_terre",
+  "titre": "Galettes de poireaux et pommes de terre",
+  "saison": ["hiver"],
+  "tags": ["vegetarien", "oeufs", "four", "air-fryer"],
+  "portions": 2,
+
+  "temps": {
+    "preparation_minutes": 20,
+    "cuisson_minutes": 25
+  },
+
+  "ingredients": {
+    "base": [
+      { "nom": "Poireaux", "quantite": 300, "unite": "g", "calories": 90 },
+      { "nom": "Pommes de terre", "quantite": 400, "unite": "g", "calories": 300 },
+      { "nom": "Œufs", "quantite": 2, "unite": "pieces", "calories": 280 },
+      { "nom": "Farine ou chapelure", "quantite": 30, "unite": "g", "calories": 110 },
+      { "nom": "Huile d'olive", "quantite": 10, "unite": "g", "calories": 90 }
+    ],
+
+    "optionnels": [
+      { "nom": "Fromage râpé ou feta", "quantite": 30, "unite": "g", "calories": 120 }
+    ],
+
+    "sauce": [
+      { "nom": "Yaourt nature", "quantite": 100, "unite": "g", "calories": 60 },
+      { "nom": "Moutarde", "quantite": 5, "unite": "g", "calories": 5 }
+    ]
+  },
+
+  "options": {
+    "feculents": [
+      { "nom": "Riz blanc cuit", "quantite_par_personne": 100, "unite": "g", "calories": 130 },
+      { "nom": "Pâtes complètes cuites", "quantite_par_personne": 100, "unite": "g", "calories": 140 },
+      { "nom": "Pain complet", "quantite_par_personne": 50, "unite": "g", "calories": 130 }
+    ],
+    "proteines": [
+      { "nom": "Blanc de poulet", "type": "viande", "quantite_par_personne": 120, "unite": "g", "calories": 130 },
+      { "nom": "Lardons", "type": "viande", "quantite_par_personne": 60, "unite": "g", "calories": 180 }
+    ]
+  },
+
+  "etapes": [
+    "Émincer et faire revenir les poireaux à feu doux jusqu’à ce qu’ils soient fondants.",
+    "Râper ou couper finement les pommes de terre puis bien les presser.",
+    "Mélanger poireaux, pommes de terre, œufs, farine, sel et poivre.",
+    "Former des galettes plates.",
+    "Cuire au four à 190°C pendant 25 min ou à l’air-fryer à 180°C pendant 12 à 15 min.",
+    "Mélanger les ingrédients de la sauce."
+  ],
+
+  "calories": {
+    "base_par_personne": 465,
+    "avec_feculent": {
+      "riz": 565,
+      "pates": 575,
+      "pain": 565
+    }
+  }
+}

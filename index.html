@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mes recettes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="brand">
+          <span class="brand-mark">R</span>
+          <div>
+            <p class="brand-title">Mes recettes</p>
+            <p class="brand-subtitle">Un carnet simple et vivant.</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <input id="search" type="search" placeholder="Rechercher une recette..." aria-label="Rechercher une recette" />
+        </div>
+      </header>
+
+      <main>
+        <section id="list-view" class="view active" aria-live="polite">
+          <div class="section-title">
+            <h1>Toutes les recettes</h1>
+            <p id="recipe-count">0 recette</p>
+          </div>
+          <div id="recipe-grid" class="grid"></div>
+          <div id="empty-state" class="empty-state hidden">
+            <p>Aucune recette ne correspond a la recherche.</p>
+          </div>
+        </section>
+
+        <section id="detail-view" class="view" aria-live="polite">
+          <button id="back-button" class="back-button" type="button">Retour a la liste</button>
+          <div id="detail-content" class="detail"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
