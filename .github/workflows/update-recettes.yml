@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   update-manifest:
     if: github.actor != 'github-actions[bot]'
@@ -12,6 +15,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
