@@ -59,6 +59,49 @@ const formatQuantity = (item) => {
   return `${item.nom}${type} - ${qty} ${unit}`.trim();
 };
 
+const ingredientEmojiMap = [
+  { match: ["poireau", "poireaux"], emoji: "🧅" },
+  { match: ["pomme de terre", "pommes de terre"], emoji: "🥔" },
+  { match: ["tomate", "tomates"], emoji: "🍅" },
+  { match: ["oignon", "oignons"], emoji: "🧅" },
+  { match: ["ail"], emoji: "🧄" },
+  { match: ["oeuf", "œuf", "oeufs", "œufs"], emoji: "🥚" },
+  { match: ["fromage", "feta"], emoji: "🧀" },
+  { match: ["yaourt", "yogourt"], emoji: "🥛" },
+  { match: ["poulet"], emoji: "🍗" },
+  { match: ["lardon", "lardons", "bacon"], emoji: "🥓" },
+  { match: ["riz"], emoji: "🍚" },
+  { match: ["pate", "pates", "pâte", "pâtes"], emoji: "🍝" },
+  { match: ["pain"], emoji: "🍞" },
+  { match: ["citron"], emoji: "🍋" },
+  { match: ["huile", "huile d'olive", "huile d’olive"], emoji: "🫒" },
+  { match: ["poivre", "sel", "epice", "épice", "moutarde"], emoji: "🧂" },
+  { match: ["poivron", "poivrons"], emoji: "🫑" },
+  { match: ["carotte", "carottes"], emoji: "🥕" },
+  { match: ["champignon", "champignons"], emoji: "🍄" },
+  { match: ["courgette", "courgettes"], emoji: "🥒" },
+  { match: ["lentille", "lentilles"], emoji: "🥣" },
+  { match: ["haricot", "haricots", "pois chiche", "pois chiches"], emoji: "🫘" },
+  { match: ["poisson"], emoji: "🐟" },
+  { match: ["crevette", "crevettes"], emoji: "🦐" },
+  { match: ["boeuf", "bœuf"], emoji: "🥩" },
+  { match: ["porc"], emoji: "🐖" },
+];
+
+const normalizeIngredient = (value) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+const emojiForIngredient = (name) => {
+  const normalized = normalizeIngredient(name);
+  const entry = ingredientEmojiMap.find((item) =>
+    item.match.some((term) => normalized.includes(normalizeIngredient(term)))
+  );
+  return entry ? `${entry.emoji} ` : "";
+};
+
 const formatCalories = (item) => {
   const calories = item.calories ?? item.calories_total ?? item.calories_par_personne ?? null;
   if (calories === null) return "";
@@ -151,7 +194,7 @@ const renderDetail = (recipe) => {
       const lines = items
         .map(
           (item) =>
-            `<li>${formatQuantity(item)}${formatCalories(item) ? ` <em>(${formatCalories(item)})</em>` : ""}</li>`
+            `<li>${emojiForIngredient(item.nom)}${formatQuantity(item)}${formatCalories(item) ? ` <em>(${formatCalories(item)})</em>` : ""}</li>`
         )
         .join("");
       return `
@@ -168,7 +211,7 @@ const renderDetail = (recipe) => {
       const lines = items
         .map(
           (item) =>
-            `<li>${formatQuantity(item)}${formatCalories(item) ? ` <em>(${formatCalories(item)})</em>` : ""}</li>`
+            `<li>${emojiForIngredient(item.nom)}${formatQuantity(item)}${formatCalories(item) ? ` <em>(${formatCalories(item)})</em>` : ""}</li>`
         )
         .join("");
       return `
