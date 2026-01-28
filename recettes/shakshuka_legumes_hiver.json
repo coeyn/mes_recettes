@@ -1,0 +1,61 @@
+{
+  "id": "shakshuka_legumes_hiver",
+  "titre": "Shakshuka de légumes d’hiver aux œufs",
+  "saison": ["hiver"],
+  "tags": ["vegetarien", "oeufs", "poele", "sans_four"],
+  "portions": 2,
+
+  "temps": {
+    "preparation_minutes": 15,
+    "cuisson_minutes": 25
+  },
+
+  "ingredients": {
+    "base": [
+      { "nom": "Oignon", "quantite": 150, "unite": "g", "calories": 60 },
+      { "nom": "Carottes", "quantite": 200, "unite": "g", "calories": 80 },
+      { "nom": "Poivron", "quantite": 150, "unite": "g", "calories": 45 },
+      { "nom": "Tomates concassées", "quantite": 400, "unite": "g", "calories": 80 },
+      { "nom": "Œufs", "quantite": 4, "unite": "pieces", "calories": 560 },
+      { "nom": "Huile d'olive", "quantite": 10, "unite": "g", "calories": 90 }
+    ],
+
+    "optionnels": [
+      { "nom": "Feta", "quantite": 40, "unite": "g", "calories": 100 }
+    ],
+
+    "epices": [
+      { "nom": "Cumin", "quantite": 2, "unite": "g", "calories": 5 },
+      { "nom": "Paprika", "quantite": 2, "unite": "g", "calories": 5 },
+      { "nom": "Ail", "quantite": 5, "unite": "g", "calories": 7 }
+    ]
+  },
+
+  "options": {
+    "feculents": [
+      { "nom": "Pain pita", "quantite_par_personne": 60, "unite": "g", "calories": 160 },
+      { "nom": "Riz blanc cuit", "quantite_par_personne": 100, "unite": "g", "calories": 130 }
+    ],
+    "proteines": [
+      { "nom": "Merguez", "type": "viande", "quantite_par_personne": 100, "unite": "g", "calories": 300 },
+      { "nom": "Blanc de poulet", "type": "viande", "quantite_par_personne": 120, "unite": "g", "calories": 130 }
+    ]
+  },
+
+  "etapes": [
+    "Émincer l’oignon, couper les carottes et le poivron en petits dés.",
+    "Faire revenir l’oignon dans l’huile d’olive jusqu’à ce qu’il soit translucide.",
+    "Ajouter carottes, poivron, ail et épices, puis cuire 10 minutes.",
+    "Ajouter les tomates concassées et laisser mijoter 10 minutes.",
+    "Former des creux, casser les œufs et couvrir jusqu’à cuisson souhaitée.",
+    "Ajouter la feta émiettée avant de servir."
+  ],
+
+  "calories": {
+    "base_par_personne": 520,
+    "avec_feculent": {
+      "pain_pita": 680,
+      "riz": 650
+    }
+  }
+}
