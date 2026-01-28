@@ -193,7 +193,7 @@ const renderDetail = (recipe) => {
     <div>
       <h2>${recipe.titre}</h2>
       <div class="badges">
-        ${(recipe.saison || []).map((item) => `<span class="badge">${item}</span>`).join("")}
+        ${(recipe.saison || []).map((item) => `<span class="badge sun">${item}</span>`).join("")}
         ${(recipe.tags || []).map((item) => `<span class="badge">${item}</span>`).join("")}
       </div>
       <div class="meta">
@@ -203,25 +203,31 @@ const renderDetail = (recipe) => {
         <span>${recipe.portions ?? "?"} portions</span>
       </div>
     </div>
-    <div class="detail-section">
-      <h3>Ingredients</h3>
-      <div class="detail">${ingredientSections}</div>
-    </div>
-    ${optionsSections ? `<div class="detail-section"><h3>Options</h3><div class="detail">${optionsSections}</div></div>` : ""}
-    <div class="detail-section">
-      <h3>Etapes</h3>
-      <ol class="list">${steps}</ol>
-    </div>
-    <div class="detail-section">
-      <h3>Calories</h3>
-      <p>Sans feculent : ${recipe.calories?.base_par_personne ?? recipe.calories?.sans_feculent_par_personne ?? "?"} kcal / personne</p>
-      <p>Avec feculent :
-        ${(recipe.calories?.avec_feculent || recipe.calories?.avec_feculent_par_personne
-          ? Object.entries(recipe.calories.avec_feculent ?? recipe.calories.avec_feculent_par_personne)
-              .map(([label, value]) => `${label} ${value} kcal`)
-              .join(" | ")
-          : "?")}
-      </p>
+    <div class="detail-layout">
+      <div class="detail-main">
+        <div class="detail-section">
+          <h3>Ingredients</h3>
+          <div class="detail">${ingredientSections}</div>
+        </div>
+        ${optionsSections ? `<div class="detail-section"><h3>Options</h3><div class="detail">${optionsSections}</div></div>` : ""}
+      </div>
+      <div class="detail-side">
+        <div class="detail-section">
+          <h3>Etapes</h3>
+          <ol class="list">${steps}</ol>
+        </div>
+        <div class="detail-section">
+          <h3>Calories</h3>
+          <p>Sans feculent : ${recipe.calories?.base_par_personne ?? recipe.calories?.sans_feculent_par_personne ?? "?"} kcal / personne</p>
+          <p>Avec feculent :
+            ${(recipe.calories?.avec_feculent || recipe.calories?.avec_feculent_par_personne
+              ? Object.entries(recipe.calories.avec_feculent ?? recipe.calories.avec_feculent_par_personne)
+                  .map(([label, value]) => `${label} ${value} kcal`)
+                  .join(" | ")
+              : "?")}
+          </p>
+        </div>
+      </div>
     </div>
   `;
 };

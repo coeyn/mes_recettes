@@ -301,6 +301,24 @@ body {
   border: 1px solid rgba(255, 122, 89, 0.12);
 }
 
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 24px;
+}
+
+.detail-main,
+.detail-side {
+  display: grid;
+  gap: 20px;
+}
+
+@media (max-width: 960px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .planner-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
