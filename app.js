@@ -23,6 +23,7 @@ const elements = {
   authLink: document.querySelector("#auth-link"),
   authBack: document.querySelector("#auth-back"),
   authGoPlanner: document.querySelector("#auth-go-planner"),
+  searchForm: document.querySelector("#search-form"),
   plannerSelect: document.querySelector("#planner-select"),
   plannerAdd: document.querySelector("#planner-add"),
   plannerItems: document.querySelector("#planner-items"),
@@ -614,18 +615,17 @@ elements.authBack.addEventListener("click", showList);
 elements.authLink.addEventListener("click", showAuth);
 elements.authGoPlanner.addEventListener("click", showPlanner);
 
-elements.search.addEventListener("input", applyFilter);
+const runSearch = (event) => {
+  if (event) event.preventDefault();
+  const value = elements.search.value || "";
+  if (value.includes("@")) {
+    elements.search.value = "";
+  }
+  applyFilter();
+};
 
-if (elements.search) {
-  const clearAutofill = () => {
-    const value = elements.search.value || "";
-    if (value.includes("@")) {
-      elements.search.value = "";
-      applyFilter();
-    }
-  };
-  window.addEventListener("pageshow", clearAutofill);
-  setTimeout(clearAutofill, 50);
+if (elements.searchForm) {
+  elements.searchForm.addEventListener("submit", runSearch);
 }
 
 elements.plannerAdd.addEventListener("click", () => {

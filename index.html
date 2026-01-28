@@ -17,15 +17,19 @@
           </div>
         </div>
         <div class="header-actions">
-          <input
-            id="search"
-            type="search"
-            name="recipe-search"
-            placeholder="Rechercher une recette..."
-            aria-label="Rechercher une recette"
-            autocomplete="new-password"
-            spellcheck="false"
-          />
+          <form id="search-form" class="search-form" autocomplete="off">
+            <input
+              id="search"
+              type="text"
+              name="q"
+              placeholder="Rechercher une recette..."
+              aria-label="Rechercher une recette"
+              autocomplete="off"
+              spellcheck="false"
+              inputmode="search"
+            />
+            <button id="search-button" class="ghost-button" type="submit">Rechercher</button>
+          </form>
           <button id="planner-link" class="ghost-button" type="button">Planifier</button>
           <button id="auth-link" class="ghost-button" type="button">Connexion</button>
         </div>
