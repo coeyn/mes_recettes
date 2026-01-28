@@ -616,6 +616,18 @@ elements.authGoPlanner.addEventListener("click", showPlanner);
 
 elements.search.addEventListener("input", applyFilter);
 
+if (elements.search) {
+  const clearAutofill = () => {
+    const value = elements.search.value || "";
+    if (value.includes("@")) {
+      elements.search.value = "";
+      applyFilter();
+    }
+  };
+  window.addEventListener("pageshow", clearAutofill);
+  setTimeout(clearAutofill, 50);
+}
+
 elements.plannerAdd.addEventListener("click", () => {
   addToPlan(elements.plannerSelect.value);
 });
