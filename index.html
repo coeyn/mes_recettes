@@ -18,6 +18,7 @@
         </div>
         <div class="header-actions">
           <input id="search" type="search" placeholder="Rechercher une recette..." aria-label="Rechercher une recette" />
+          <button id="planner-link" class="ghost-button" type="button">Planifier</button>
         </div>
       </header>
 
@@ -37,9 +38,50 @@
           <button id="back-button" class="back-button" type="button">Retour a la liste</button>
           <div id="detail-content" class="detail"></div>
         </section>
+
+        <section id="planner-view" class="view" aria-live="polite">
+          <button id="planner-back" class="back-button" type="button">Retour aux recettes</button>
+          <div class="section-title">
+            <h1>Planifier les recettes</h1>
+            <p>Construis ta semaine et genere ta liste de course.</p>
+          </div>
+
+          <div class="planner-grid">
+            <div class="planner-panel">
+              <h2>Synchronisation</h2>
+              <p id="auth-status">Non connecte.</p>
+              <div id="auth-form" class="auth-form">
+                <input id="auth-email" type="email" placeholder="Email" autocomplete="email" />
+                <input id="auth-password" type="password" placeholder="Mot de passe" autocomplete="current-password" />
+                <button id="auth-login" class="primary-button" type="button">Connexion</button>
+                <button id="auth-register" class="ghost-button" type="button">Creer un compte</button>
+              </div>
+              <button id="auth-logout" class="ghost-button hidden" type="button">Se deconnecter</button>
+            </div>
+
+            <div class="planner-panel">
+              <h2>Ajouter une recette</h2>
+              <div class="planner-form">
+                <select id="planner-select" aria-label="Choisir une recette"></select>
+                <button id="planner-add" class="primary-button" type="button">Ajouter</button>
+              </div>
+              <div id="planner-items" class="planner-items"></div>
+            </div>
+
+            <div class="planner-panel">
+              <h2>Liste de course</h2>
+              <ul id="shopping-list" class="list"></ul>
+              <p id="shopping-empty" class="empty-state hidden">Ajoute des recettes pour voir la liste.</p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

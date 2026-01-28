@@ -81,6 +81,33 @@ body {
   min-width: 240px;
 }
 
+.ghost-button,
+.primary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ghost-button {
+  background: #fff;
+  border: 1px solid var(--surface-strong);
+  color: var(--ink);
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 30px -20px rgba(228, 87, 46, 0.8);
+}
+
+.ghost-button:hover,
+.primary-button:hover {
+  transform: translateY(-2px);
+}
+
 .section-title {
   margin: 40px 0 24px;
   display: flex;
@@ -183,6 +210,115 @@ body {
   box-shadow: var(--shadow);
   display: grid;
   gap: 24px;
+}
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.planner-panel {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 16px;
+}
+
+.planner-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+}
+
+.auth-form input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--surface-strong);
+  font-size: 14px;
+}
+
+.planner-form select {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--surface-strong);
+  font-size: 14px;
+}
+
+.planner-items {
+  display: grid;
+  gap: 12px;
+}
+
+.planner-item {
+  border: 1px solid var(--surface-strong);
+  border-radius: 16px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.planner-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.planner-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.planner-row input[type="number"] {
+  width: 90px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--surface-strong);
+}
+
+.option-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  font-size: 12px;
+}
+
+.chip input {
+  margin-right: 6px;
+}
+
+.planner-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.file-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .detail h2 {
