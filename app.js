@@ -443,17 +443,10 @@ const renderPlannerSelect = () => {
 
 const getPlanItem = (id) => state.plan.items.find((item) => item.id === id);
 
-const createPlanItem = (recipe) => {
-  const options = {};
-  Object.keys(recipe.options || {}).forEach((key) => {
-    options[key] = false;
-  });
-  return {
-    id: recipe.id,
-    servings: recipe.portions ?? 2,
-    options,
-  };
-};
+const createPlanItem = (recipe) => ({
+  id: recipe.id,
+  servings: recipe.portions ?? 2,
+});
 
 const addToPlan = (recipeId) => {
   const recipe = state.recipes.find((item) => item.id === recipeId);
@@ -485,14 +478,6 @@ const updateServings = (recipeId, value) => {
   renderShoppingList();
 };
 
-const toggleOptionGroup = (recipeId, group, checked) => {
-  const item = getPlanItem(recipeId);
-  if (!item) return;
-  item.options[group] = checked;
-  persistPlan();
-  renderShoppingList();
-};
-
 const renderPlannerItems = () => {
   elements.plannerItems.innerHTML = "";
   if (!state.plan.items.length) {
@@ -504,24 +489,6 @@ const renderPlannerItems = () => {
     if (!recipe) return;
     const container = document.createElement("div");
     container.className = "planner-item";
-    const optionGroups = Object.keys(recipe.options || {});
-    const optionToggles =
-      optionGroups.length > 0
-        ? `
-          <div class="planner-row">
-            ${optionGroups
-              .map(
-                (group) => `
-                  <label class="chip">
-                    <input type="checkbox" data-option="${group}" ${item.options[group] ? "checked" : ""} />
-                    ${group.replace(/_/g, " ")}
-                  </label>
-                `
-              )
-              .join("")}
-          </div>
-        `
-        : "";
     container.innerHTML = `
       <h3>${recipe.titre}</h3>
       <div class="planner-row">
@@ -529,18 +496,12 @@ const renderPlannerItems = () => {
         <input type="number" min="1" value="${item.servings}" data-servings />
         <button class="ghost-button" data-remove>Retirer</button>
       </div>
-      ${optionToggles}
     `;
     container.querySelector("[data-servings]").addEventListener("input", (event) => {
       updateServings(recipe.id, event.target.value);
     });
     const removeButton = container.querySelector("[data-remove]");
     removeButton.addEventListener("click", () => removeFromPlan(recipe.id));
-    container.querySelectorAll("[data-option]").forEach((checkbox) => {
-      checkbox.addEventListener("change", (event) => {
-        toggleOptionGroup(recipe.id, checkbox.dataset.option, event.target.checked);
-      });
-    });
     elements.plannerItems.appendChild(container);
   });
 };
@@ -586,10 +547,6 @@ const renderShoppingList = () => {
     const servings = item.servings ?? recipe.portions ?? 1;
     const portions = recipe.portions ?? 1;
     Object.values(recipe.ingredients || {}).forEach((items) => {
-      items.forEach((ingredient) => addIngredient(bucket, ingredient, servings, portions));
-    });
-    Object.entries(recipe.options || {}).forEach(([group, items]) => {
-      if (!item.options[group]) return;
       items.forEach((ingredient) => addIngredient(bucket, ingredient, servings, portions));
     });
   });
