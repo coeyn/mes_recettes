@@ -444,6 +444,10 @@ body {
 .detail-section {
   display: grid;
   gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(26, 27, 46, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 244, 236, 0.9));
 }
 
 .detail-section h3 {
@@ -461,6 +465,16 @@ body {
 .detail-group {
   display: grid;
   gap: 16px;
+}
+
+.detail-main .detail-section {
+  border-color: rgba(79, 210, 176, 0.2);
+  background: linear-gradient(135deg, rgba(79, 210, 176, 0.08), rgba(255, 255, 255, 0.95));
+}
+
+.detail-side .detail-section {
+  border-color: rgba(107, 91, 255, 0.2);
+  background: linear-gradient(135deg, rgba(107, 91, 255, 0.08), rgba(255, 255, 255, 0.95));
 }
 
 .list {
