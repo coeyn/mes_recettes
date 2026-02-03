@@ -1,0 +1,55 @@
+{
+  "id": "gratin_chou_fleur_creme_moutarde",
+  "titre": "Gratin de chou-fleur à la crème et moutarde",
+  "saison": ["hiver"],
+  "tags": ["vegetarien", "four", "sans_oeufs"],
+  "portions": 2,
+
+  "temps": {
+    "preparation_minutes": 15,
+    "cuisson_minutes": 30
+  },
+
+  "ingredients": {
+    "base": [
+      { "nom": "Chou-fleur", "quantite": 600, "unite": "g", "calories": 150 },
+      { "nom": "Crème fraîche", "quantite": 120, "unite": "g", "calories": 360 },
+      { "nom": "Fromage râpé (emmental ou comté)", "quantite": 60, "unite": "g", "calories": 240 },
+      { "nom": "Moutarde", "quantite": 15, "unite": "g", "calories": 15 },
+      { "nom": "Huile d'olive", "quantite": 5, "unite": "g", "calories": 45 }
+    ],
+
+    "epices": [
+      { "nom": "Noix de muscade", "quantite": 1, "unite": "g", "calories": 5 },
+      { "nom": "Poivre", "quantite": 1, "unite": "g", "calories": 2 },
+      { "nom": "Sel", "quantite": 2, "unite": "g", "calories": 0 }
+    ]
+  },
+
+  "options": {
+    "feculents": [
+      { "nom": "Pâtes complètes cuites", "quantite_par_personne": 100, "unite": "g", "calories": 140 },
+      { "nom": "Riz blanc cuit", "quantite_par_personne": 100, "unite": "g", "calories": 130 }
+    ],
+    "proteines": [
+      { "nom": "Jambon blanc", "type": "viande", "quantite_par_personne": 100, "unite": "g", "calories": 120 },
+      { "nom": "Blanc de poulet rôti", "type": "viande", "quantite_par_personne": 120, "unite": "g", "calories": 130 }
+    ]
+  },
+
+  "etapes": [
+    "Détailler le chou-fleur en fleurettes et le cuire 10 minutes à l’eau bouillante salée.",
+    "Égoutter le chou-fleur et le disposer dans un plat légèrement huilé.",
+    "Mélanger la crème, la moutarde, la muscade, le sel et le poivre.",
+    "Verser la sauce sur le chou-fleur et parsemer de fromage râpé.",
+    "Enfourner à 190°C pendant 25 à 30 minutes jusqu’à gratin doré."
+  ],
+
+  "calories": {
+    "base_par_personne": 405,
+    "avec_feculent": {
+      "pates": 545,
+      "riz": 535
+    }
+  }
+}
