@@ -1,0 +1,55 @@
+{
+  "id": "camembert_roti_legumes_hiver",
+  "titre": "Camembert rôti au four, légumes d’hiver et herbes",
+  "saison": ["hiver"],
+  "tags": ["vegetarien", "four", "fromage", "convivial"],
+  "portions": 2,
+
+  "temps": {
+    "preparation_minutes": 15,
+    "cuisson_minutes": 25
+  },
+
+  "ingredients": {
+    "base": [
+      { "nom": "Camembert", "quantite": 400, "unite": "g", "calories": 1200 },
+      { "nom": "Pommes de terre", "quantite": 500, "unite": "g", "calories": 375 },
+      { "nom": "Carottes", "quantite": 250, "unite": "g", "calories": 100 },
+      { "nom": "Oignon rouge", "quantite": 120, "unite": "g", "calories": 50 },
+      { "nom": "Huile d'olive", "quantite": 15, "unite": "g", "calories": 135 }
+    ],
+
+    "assaisonnement": [
+      { "nom": "Herbes de Provence", "quantite": 2, "unite": "g", "calories": 5 },
+      { "nom": "Poivre", "quantite": 1, "unite": "g", "calories": 2 }
+    ]
+  },
+
+  "options": {
+    "feculents": [
+      { "nom": "Pain de campagne", "quantite_par_personne": 70, "unite": "g", "calories": 180 }
+    ],
+    "proteines": [
+      { "nom": "Jambon cru", "type": "viande", "quantite_par_personne": 60, "unite": "g", "calories": 160 },
+      { "nom": "Lard fumé", "type": "viande", "quantite_par_personne": 80, "unite": "g", "calories": 280 }
+    ]
+  },
+
+  "etapes": [
+    "Préchauffer le four à 190°C.",
+    "Laver et couper les pommes de terre et les carottes en morceaux.",
+    "Émincer l’oignon rouge.",
+    "Mélanger les légumes avec l’huile d’olive, les herbes et le poivre, puis les disposer dans un plat.",
+    "Enfourner les légumes 15 minutes.",
+    "Déposer les camemberts (dans leur boîte ou un petit plat) au centre.",
+    "Poursuivre la cuisson 10 minutes jusqu’à ce que le fromage soit bien coulant.",
+    "Servir immédiatement avec le pain et les options choisies."
+  ],
+
+  "calories": {
+    "base_par_personne": 930,
+    "avec_feculent": {
+      "pain": 1110
+    }
+  }
+}
