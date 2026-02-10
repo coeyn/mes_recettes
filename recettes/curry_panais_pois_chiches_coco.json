@@ -1,0 +1,60 @@
+{
+  "id": "curry_panais_pois_chiches_coco",
+  "titre": "Curry de panais et pois chiches au lait de coco",
+  "saison": ["hiver"],
+  "tags": ["vegetarien", "vegan_option", "mijote", "poele"],
+  "portions": 2,
+
+  "temps": {
+    "preparation_minutes": 15,
+    "cuisson_minutes": 30
+  },
+
+  "ingredients": {
+    "base": [
+      { "nom": "Panais", "quantite": 400, "unite": "g", "calories": 300 },
+      { "nom": "Pois chiches cuits", "quantite": 240, "unite": "g", "calories": 400 },
+      { "nom": "Oignon", "quantite": 120, "unite": "g", "calories": 50 },
+      { "nom": "Lait de coco", "quantite": 200, "unite": "ml", "calories": 360 },
+      { "nom": "Tomates concassées", "quantite": 200, "unite": "g", "calories": 40 },
+      { "nom": "Huile végétale", "quantite": 10, "unite": "g", "calories": 90 }
+    ],
+
+    "epices": [
+      { "nom": "Curry en poudre", "quantite": 5, "unite": "g", "calories": 15 },
+      { "nom": "Ail", "quantite": 5, "unite": "g", "calories": 7 },
+      { "nom": "Gingembre", "quantite": 5, "unite": "g", "calories": 4 },
+      { "nom": "Sel", "quantite": 2, "unite": "g", "calories": 0 },
+      { "nom": "Poivre", "quantite": 1, "unite": "g", "calories": 2 }
+    ]
+  },
+
+  "options": {
+    "feculents": [
+      { "nom": "Riz basmati cuit", "quantite_par_personne": 120, "unite": "g", "calories": 155 },
+      { "nom": "Semoule cuite", "quantite_par_personne": 120, "unite": "g", "calories": 150 }
+    ],
+    "proteines": [
+      { "nom": "Blanc de poulet grillé", "type": "viande", "quantite_par_personne": 120, "unite": "g", "calories": 130 },
+      { "nom": "Crevettes sautées", "type": "poisson", "quantite_par_personne": 120, "unite": "g", "calories": 120 }
+    ]
+  },
+
+  "etapes": [
+    "Émincer l’oignon et couper les panais en cubes.",
+    "Faire revenir l’oignon dans l’huile 3 minutes.",
+    "Ajouter ail, gingembre et curry puis cuire 1 minute.",
+    "Ajouter les panais et cuire 5 minutes.",
+    "Ajouter tomates et pois chiches puis laisser mijoter 10 minutes.",
+    "Verser le lait de coco et cuire encore 10 minutes jusqu’à ce que les panais soient tendres.",
+    "Rectifier l’assaisonnement et servir."
+  ],
+
+  "calories": {
+    "base_par_personne": 625,
+    "avec_feculent": {
+      "riz": 780,
+      "semoule": 775
+    }
+  }
+}
